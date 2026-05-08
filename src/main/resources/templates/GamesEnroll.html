@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir Loot | La Leyenda del Juego</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html { height: 100%; margin: 0; background-color: #0d0d0d; color: white; font-family: 'Roboto', sans-serif; overflow-y: auto; }
+        .split-container { display: flex; min-height: 100vh; }
+        .form-side { flex: 1; padding: 40px 60px; display: flex; flex-direction: column; justify-content: center; }
+        .image-side { 
+            flex: 1; 
+            background: url('https://images.unsplash.com/photo-1635243208988-9ff40a412038?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fHZpZGVvZ2FtZXMlMjBhcmNhZGV8ZW58MHx8MHx8fDA%3D') center center / cover no-repeat;
+            border-right: 4px solid #00ff41;
+        }
+        .retro-title { font-family: 'Press Start 2P', cursive; color: #00ff41; font-size: 1.5rem; margin-bottom: 30px; text-transform: uppercase; }
+        .form-control, .form-select { 
+            background: #1a1a1a; border: 2px solid #333; color: white; border-radius: 0; padding: 10px; margin-bottom: 15px;
+        }
+        .form-control:focus, .form-select:focus { background: #222; border-color: #00ff41; color: white; box-shadow: 0 0 10px rgba(0, 255, 65, 0.5); }
+        .btn-add { 
+            font-family: 'Press Start 2P', cursive; background: #00ff41; border: none; color: black; padding: 15px; width: 100%; transition: 0.3s;
+        }
+        .btn-add:hover { background: #bc13fe; color: white; transform: scale(1.02); }
+        label { font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: #888; margin-bottom: 5px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="split-container flex-row-reverse">
+        <div class="form-side">
+            <h1 class="retro-title">Nuevo Juego</h1>
+            <form th:action="@{/altaJuegos}" th:object="${game}" method="post">
+                <label>TÍTULO DEL JUEGO</label>
+                <input type="text" th:field="*{nombre}" class="form-control" placeholder="Ej: Elden Ring" required>
+                
+                <label>GÉNERO / CATEGORÍA</label>
+                <input type="text" th:field="*{genero}" class="form-control" placeholder="Ej: RPG" required>
+                
+                <label>PLATAFORMA</label>
+                <input type="text" th:field="*{plataforma}" class="form-control" placeholder="Ej: PS5, PC" required>
+                
+                <div class="row">
+                    <div class="col-6">
+                        <label>PRECIO (€)</label>
+                        <input type="number" step="0.01" th:field="*{precio}" class="form-control" placeholder="0.00" required>
+                    </div>
+                    <div class="col-6">
+                        <label>STOCK INICIAL</label>
+                        <input type="number" th:field="*{stock}" class="form-control" placeholder="10" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-add mt-3">AÑADIR AL INVENTARIO</button>
+                <div class="text-center mt-3">
+                    <a th:href="@{/inicio}" class="text-muted small text-decoration-none">VOLVER</a>
+                </div>
+            </form>
+        </div>
+        <div class="image-side d-none d-md-block"></div>
+    </div>
+</body>
+</html>

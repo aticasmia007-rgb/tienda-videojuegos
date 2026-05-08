@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>La Leyenda del Juego | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #0d0d0d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            height: 100vh;
+        }
+
+        /* Columna de la imagen izquierda (1/3) */
+        .sidebar-image {
+            background: url('https://plus.unsplash.com/premium_photo-1677870728119-52aef052d7ef?w=900&auto=format&fit=crop&q=60') center center / cover no-repeat;
+            border-right: 3px solid #bc13fe;
+            box-shadow: 10px 0 20px rgba(188, 19, 254, 0.2);
+        }
+
+        /* TÍTULO RETRO EXTRUDE */
+        .game-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2rem;
+            font-style: italic;
+            line-height: 1.4;
+            text-transform: uppercase;
+            color: #00ff41; 
+            text-shadow: 
+                3px 3px 0px #bc13fe, 
+                6px 6px 0px #000;
+            margin-bottom: 10px;
+        }
+
+        /* SUBTÍTULO OBLIGATORIO */
+        .subtitle-name {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            color: #bc13fe;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            display: block;
+        }
+
+        /* Cards Estilo Gamer */
+        .card-gamer {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            overflow: hidden;
+        }
+
+        .card-gamer:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+            border-color: #00ff41;
+        }
+
+        .card-img-top {
+            height: 160px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .card-title-retro {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* Botones de Alta con Brillo Morado */
+        .btn-alta-gamer {
+            background: transparent;
+            border: 2px solid #bc13fe;
+            color: #bc13fe;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            padding: 18px;
+            transition: all 0.3s;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+
+        .btn-alta-gamer:hover {
+            background: #bc13fe;
+            color: white;
+            box-shadow: 0 0 15px #bc13fe;
+            transform: scale(1.05);
+        }
+
+        .section-right {
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid main-container p-0">
+    <div class="row g-0 h-100">
+        
+        <div class="col-md-4 sidebar-image d-none d-md-block"></div>
+
+        <div class="col-md-8 d-flex align-items-center section-right">
+            <div class="container text-center">
+                
+                <h1 class="game-title">JUGANDO NO VOY,<br>JUGANDO VUELO</h1>
+                <span class="subtitle-name">Andrea Mateo García de Vinuesa</span>
+
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-5 mb-3">
+                        <a th:href="@{/listadoClientes}" class="card card-gamer h-100">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Personajes Clientes">
+                            <div class="card-body">
+                                <h3 class="card-title-retro">CLIENTES</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <a th:href="@{/listadoJuegos}" class="card card-gamer h-100">
+                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Biblioteca Juegos">
+                            <div class="card-body">
+                                <h3 class="card-title-retro">JUEGOS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-5 mb-3">
+                        <a th:href="@{/altaClientes}" class="btn-alta-gamer">
+                            + ALTA CLIENTES
+                        </a>
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <a th:href="@{/altaJuegos}" class="btn-alta-gamer">
+                            + ALTA JUEGOS
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

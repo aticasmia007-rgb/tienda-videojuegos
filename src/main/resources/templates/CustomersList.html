@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Base de Datos Clientes | La Leyenda del Juego</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            padding: 50px 0;
+        }
+
+        .admin-title-page {
+            font-family: 'Press Start 2P', cursive;
+            color: #bc13fe; /* Morado Neón para diferenciar de juegos */
+            text-shadow: 3px 3px 0px #000;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        /* Card alargada tipo fila */
+        .customer-row-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-left: 5px solid #bc13fe; /* Acento morado */
+            border-radius: 0;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .customer-row-card:hover {
+            background: #222;
+            border-left-color: #00ff41; /* Cambia a verde al pasar el ratón */
+            transform: translateX(10px);
+        }
+
+        .label-retro {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.55rem;
+            color: #888;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .info-text {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .email-text {
+            color: #00ff41;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        .btn-back {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: #00ff41;
+            text-decoration: none;
+            border: 2px solid #00ff41;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #00ff41;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h1 class="admin-title-page">Registro de Clientes</h1>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            
+            <div class="card customer-row-card p-3" th:each="cliente : ${listaClientes}">
+                <div class="row align-items-center text-center text-md-start">
+                    
+                    <div class="col-md-3">
+                        <span class="label-retro">NOMBRE:</span>
+                        <span class="info-text" th:text="${cliente.nombre}">Nombre</span>
+                    </div>
+
+                    <div class="col-md-5">
+                        <span class="label-retro">APELLIDOS:</span>
+                        <span class="info-text" th:text="${cliente.apellido1 + ' ' + cliente.apellido2}">Apellidos Completos</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <span class="label-retro">CONTACTO:</span>
+                        <span class="email-text" th:text="${cliente.correo}">email@ejemplo.com</span>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+    </div>
+    <hr>
+    <a th:href="@{/inicio}" class="btn-back">VOLVER AL PANEL</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

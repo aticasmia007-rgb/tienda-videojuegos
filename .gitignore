@@ -1,0 +1,36 @@
+# Compilación y binarios
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Log de errores
+*.log
+
+# Archivos de Spring Tool Suite (STS) / Eclipse
+.metadata
+.classpath
+.project
+.settings/
+.springBeans
+.factorypath
+.sts4-cache
+.apt_generated
+
+# Maven wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+# IntelliJ / VS Code
+.idea/
+*.iml
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Configuración local
+.env
