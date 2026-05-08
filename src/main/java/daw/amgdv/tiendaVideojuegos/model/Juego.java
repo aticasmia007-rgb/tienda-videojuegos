@@ -32,7 +32,7 @@ public class Juego {
 		this.stock = stock;
 	}
 	
-	//Geter y Setters
+	//Getter y Setters
 	public Long getId() {
 		return id;
 	}
