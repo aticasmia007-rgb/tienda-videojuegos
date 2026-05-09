@@ -1,4 +1,13 @@
---CREATE DATABASE IF NOT EXISTS tiendaVideojuegosAMGDV;
+-- BBDD
+DROP DATABASE IF EXISTS tiendavideojuegos;
+CREATE DATABASE tiendavideojuegos;
+USE tiendavideojuegos;
+
+-- USER
+CREATE USER IF NOT EXISTS 'userandrea'@'%' IDENTIFIED BY 'pwd';
+GRANT ALL PRIVILEGES ON tiendavideojuegos.* TO 'userandrea'@'%';
+
+-- Tables
 CREATE TABLE IF NOT EXISTS clientes (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
