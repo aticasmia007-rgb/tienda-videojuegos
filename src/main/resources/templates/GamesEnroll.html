@@ -32,7 +32,7 @@
             <h1 class="retro-title">Nuevo Juego</h1>
             <form th:action="@{/altaJuegos}" th:object="${game}" method="post">
                 <label>TÍTULO DEL JUEGO</label>
-                <input type="text" th:field="*{nombre}" class="form-control" placeholder="Ej: Elden Ring" required>
+                <input type="text" th:field="*{titulo}" class="form-control" placeholder="Ej: Elden Ring" required>
                 
                 <label>GÉNERO / CATEGORÍA</label>
                 <input type="text" th:field="*{genero}" class="form-control" placeholder="Ej: RPG" required>

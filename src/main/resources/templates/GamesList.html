@@ -97,7 +97,7 @@
                  th:classappend="${iterStat.index % 3 == 0 ? 'border-neon-green' : (iterStat.index % 3 == 1 ? 'border-neon-purple' : 'border-neon-blue')}">
                 
                 <span class="label-retro">TITULO:</span>
-                <h2 class="game-name" th:text="${juego.nombre}">NOMBRE</h2>
+                <h2 class="game-name" th:text="${juego.titulo}">NOMBRE</h2>
 
                 <span class="label-retro">CATEGORIA:</span>
                 <p class="mb-3 text-info" th:text="${juego.genero}">GENERO</p>
