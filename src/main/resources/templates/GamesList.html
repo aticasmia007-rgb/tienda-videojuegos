@@ -19,13 +19,12 @@
             text-shadow: 3px 3px 0px #bc13fe;
             font-size: 1.8rem;
             text-align: center;
-            margin-bottom: 50px;
         }
 
         /* Card estilo terminal/neon */
         .card-game {
             background: #1a1a1a;
-            border: 2px solid; /* El color se define abajo */
+            border: 2px solid;
             border-radius: 0;
             transition: all 0.3s ease;
             height: 100%;
@@ -67,6 +66,7 @@
             text-align: center;
         }
 
+        /* Estilo para los botones de navegación */
         .btn-back {
             font-family: 'Press Start 2P', cursive;
             font-size: 0.7rem;
@@ -75,11 +75,30 @@
             border: 2px solid #bc13fe;
             padding: 10px 20px;
             transition: 0.3s;
+            display: inline-block;
         }
 
         .btn-back:hover {
             background: #bc13fe;
             color: white;
+        }
+
+        .btn-action {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: #00ff41;
+            text-decoration: none;
+            border: 2px solid #00ff41;
+            padding: 10px 20px;
+            transition: 0.3s;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .btn-action:hover {
+            background: #00ff41;
+            color: black;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
         }
     </style>
 </head>
@@ -87,8 +106,11 @@
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-5">
-        <h1 class="game-title-page">Listado de Juegos</h1>
-        <a th:href="@{/inicio}" class="btn-back">VOLVER</a>
+        <h1 class="game-title-page mb-0">Listado de Juegos</h1>
+        <div>
+            <a th:href="@{/altaJuegos}" class="btn-action">AÑADIR JUEGO</a>
+            <a th:href="@{/inicio}" class="btn-back">VOLVER</a>
+        </div>
     </div>
 
     <div class="row g-4">
@@ -97,7 +119,7 @@
                  th:classappend="${iterStat.index % 3 == 0 ? 'border-neon-green' : (iterStat.index % 3 == 1 ? 'border-neon-purple' : 'border-neon-blue')}">
                 
                 <span class="label-retro">TITULO:</span>
-                <h2 class="game-name" th:text="${juego.titulo}">NOMBRE</h2>
+                <h2 class="game-name" th:text="${juego.titulo}">TITULO</h2>
 
                 <span class="label-retro">CATEGORIA:</span>
                 <p class="mb-3 text-info" th:text="${juego.genero}">GENERO</p>

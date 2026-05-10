@@ -15,11 +15,10 @@
 
         .admin-title-page {
             font-family: 'Press Start 2P', cursive;
-            color: #bc13fe; /* Morado Neón para diferenciar de juegos */
+            color: #bc13fe; /* Morado Neón */
             text-shadow: 3px 3px 0px #000;
             font-size: 1.8rem;
             text-align: center;
-            margin-bottom: 50px;
             text-transform: uppercase;
         }
 
@@ -59,19 +58,39 @@
             font-weight: bold;
         }
 
+        /* BOTONES */
         .btn-back {
             font-family: 'Press Start 2P', cursive;
             font-size: 0.7rem;
-            color: #00ff41;
+            color: #bc13fe; /* Morado para el volver */
+            text-decoration: none;
+            border: 2px solid #bc13fe;
+            padding: 10px 20px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: #bc13fe;
+            color: white;
+        }
+
+        .btn-action {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: #00ff41; /* Verde para añadir */
             text-decoration: none;
             border: 2px solid #00ff41;
             padding: 10px 20px;
             transition: 0.3s;
+            display: inline-block;
+            margin-right: 10px;
         }
 
-        .btn-back:hover {
+        .btn-action:hover {
             background: #00ff41;
             color: black;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
         }
     </style>
 </head>
@@ -79,7 +98,11 @@
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-5">
-        <h1 class="admin-title-page">Registro de Clientes</h1>
+        <h1 class="admin-title-page mb-0">Registro de Clientes</h1>
+        <div>
+            <a th:href="@{/altaClientes}" class="btn-action">AÑADIR CLIENTE</a>
+            <a th:href="@{/inicio}" class="btn-back">VOLVER</a>
+        </div>
     </div>
 
     <div class="row justify-content-center">
@@ -95,7 +118,7 @@
 
                     <div class="col-md-5">
                         <span class="label-retro">APELLIDOS:</span>
-                        <span class="info-text" th:text="${cliente.apellido1 + ' ' + cliente.apellido2}">Apellidos Completos</span>
+                        <span class="info-text" th:text="${cliente.apellido1 + ' ' + (cliente.apellido2 != null ? cliente.apellido2 : '')}">Apellidos Completos</span>
                     </div>
 
                     <div class="col-md-4">
@@ -105,10 +128,13 @@
 
                 </div>
             </div>
+
+            <div th:if="${#lists.isEmpty(listaClientes)}" class="text-center p-5">
+                <p class="label-retro" style="font-size: 1rem;">NO HAY CLIENTES REGISTRADOS</p>
             </div>
+
+        </div>
     </div>
-    <hr>
-    <a th:href="@{/inicio}" class="btn-back">VOLVER AL PANEL</a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
